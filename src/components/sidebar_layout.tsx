@@ -104,10 +104,15 @@ export const SidebarLayout: FC<
         </aside>
 
         {/* Main Content Area */}
-        <div class="flex-1 flex flex-col min-w-0">
+        <div class="flex-1 flex flex-col min-w-0 gap-2">
           <Header title={getTitle()} />
 
           <main class="flex-1 p-2 h-full overflow-auto">{props.children}</main>
+
+          {/* Development Mode Banner */}
+          <div class="bg-orange-100 border-t border-orange-200 px-4 py-2 text-center text-sm text-orange-800 font-medium">
+            🚧 Development Mode - Not for Production Use
+          </div>
         </div>
       </body>
     </html>

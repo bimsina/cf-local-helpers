@@ -2,6 +2,8 @@
 
 A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 
+> ⚠️ **Warning**: This dashboard should only be used in development mode and never deployed to production. It provides direct access to your local Cloudflare resources and should not be exposed publicly.
+
 ## Features
 
 **1. KV Editor**
@@ -11,7 +13,7 @@ A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 - Create, edit, and delete key-value pairs
 - View key expiration and metadata
 
-![KV Namespaces](./feature_images/kv.png)
+![KV Namespaces](https://raw.githubusercontent.com/bimsina/cf-local-helpers/refs/heads/main/feature_images/kv.png)
 
 **2. D1 Explorer**
 
@@ -20,7 +22,7 @@ A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 - Run custom SQL queries with a built-in editor
 - View query results in a table format with execution time
 
-![D1 Databases](./feature_images/d1.png)
+![D1 Databases](https://raw.githubusercontent.com/bimsina/cf-local-helpers/refs/heads/main/feature_images/d1.png)
 
 **3. R2 Browser**
 
@@ -29,13 +31,13 @@ A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 - Preview images directly in the dashboard
 - Download files
 
-![R2 Buckets](./feature_images/r2.png)
+![R2 Buckets](https://raw.githubusercontent.com/bimsina/cf-local-helpers/refs/heads/main/feature_images/r2.png)
 
 **4. Environment Variables Viewer**
 
 - Inspect all environment variables and bindings bound to your worker
 
-![Environment Variables](./feature_images/env.png)
+![Environment Variables](https://raw.githubusercontent.com/bimsina/cf-local-helpers/refs/heads/main/feature_images/env.png)
 
 ## Tech Stack
 

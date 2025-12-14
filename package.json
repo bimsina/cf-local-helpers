@@ -3,7 +3,7 @@
   "author": "bimsina",
   "license": "MIT",
   "url": "https://github.com/bimsina/cf-local-helpers",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
