@@ -1,0 +1,26 @@
+{
+  "name": "cf-local-helpers",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.tsx",
+      "import": "./src/index.tsx"
+    }
+  },
+  "types": "./src/index.tsx",
+  "scripts": {
+    "dev": "pnpm -C example run dev",
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.7.5",
+    "hono": "^4.10.8",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251212.0",
+    "tsdown": "^0.17.2",
+    "typescript": "^5.9.3"
+  }
+}
