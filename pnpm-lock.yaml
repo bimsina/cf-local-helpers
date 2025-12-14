@@ -8,15 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@hono/zod-validator':
-        specifier: ^0.7.5
-        version: 0.7.5(hono@4.10.8)(zod@4.1.13)
       hono:
         specifier: ^4.10.8
         version: 4.10.8
-      zod:
-        specifier: ^4.1.13
-        version: 4.1.13
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20251212.0
@@ -62,12 +56,6 @@ packages:
 
   '@emnapi/wasi-threads@1.1.0':
     resolution: {integrity: sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ==}
-
-  '@hono/zod-validator@0.7.5':
-    resolution: {integrity: sha512-n4l4hutkfYU07PzRUHBOVzUEn38VSfrh+UVE5d0w4lyfWDOEhzxIupqo5iakRiJL44c3vTuFJBvcmUl8b9agIA==}
-    peerDependencies:
-      hono: '>=3.9.0'
-      zod: ^3.25.0 || ^4.0.0
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -336,9 +324,6 @@ packages:
       synckit:
         optional: true
 
-  zod@4.1.13:
-    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
-
 snapshots:
 
   '@babel/generator@7.28.5':
@@ -379,11 +364,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
-
-  '@hono/zod-validator@0.7.5(hono@4.10.8)(zod@4.1.13)':
-    dependencies:
-      hono: 4.10.8
-      zod: 4.1.13
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -590,5 +570,3 @@ snapshots:
   unrun@0.2.19:
     dependencies:
       rolldown: 1.0.0-beta.53
-
-  zod@4.1.13: {}

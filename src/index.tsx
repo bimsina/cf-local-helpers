@@ -6,7 +6,6 @@ import { KVPage, KVKeyForm, KVRows } from "./pages/kv";
 import { R2Page } from "./pages/r2";
 import { D1Page, D1Results } from "./pages/d1";
 import { DashboardPage } from "./pages/dashboard";
-import { kvEntrySchema } from "./schemas";
 import type {
   R2Bucket,
   D1Database,
@@ -182,31 +181,12 @@ export default function createHandler(options: DashboardOptions = {}) {
     const env = c.env as { [key: string]: unknown };
     const body = await c.req.parseBody();
 
-    const validation = kvEntrySchema.safeParse(body);
-
-    if (!validation.success) {
-      const errorMsg = validation.error.issues.map((i) => i.message).join(", ");
-      // Return the form with validation errors
-      // Need to reconstruct entry from body
-      const entry = {
-        key: body["key"] as string,
-        value: body["value"] as string,
-        expirationTtl: body["expirationTtl"]
-          ? Number(body["expirationTtl"])
-          : undefined,
-        metadata: body["metadata"] as string,
-      };
-      return c.html(
-        <KVKeyForm
-          basePath={basePath}
-          kvId={kvId}
-          entry={entry}
-          error={errorMsg}
-        />
-      );
-    }
-
-    const { key, value, expirationTtl, metadata } = validation.data;
+    const key = body["key"] as string;
+    const value = body["value"] as string;
+    const expirationTtl = body["expirationTtl"]
+      ? Number(body["expirationTtl"])
+      : undefined;
+    const metadata = body["metadata"] as string;
 
     try {
       const entry = Object.entries(env).find(([k]) => k === kvId);

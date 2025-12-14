@@ -1,9 +1,32 @@
 {
   "name": "cf-local-helpers",
+  "version": "0.0.5",
+  "description": "A dashboard for managing Cloudflare Workers local resources (KV, D1, R2) during development",
   "author": "bimsina",
   "license": "MIT",
-  "url": "https://github.com/bimsina/cf-local-helpers",
-  "version": "0.0.3",
+  "homepage": "https://github.com/bimsina/cf-local-helpers#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bimsina/cf-local-helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bimsina/cf-local-helpers/issues"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "kv",
+    "d1",
+    "r2",
+    "dashboard",
+    "development",
+    "local",
+    "helpers",
+    "miniflare"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
@@ -20,9 +43,7 @@
     "build": "tsdown"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.7.5",
-    "hono": "^4.10.8",
-    "zod": "^4.1.13"
+    "hono": "^4.10.8"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20251212.0",
