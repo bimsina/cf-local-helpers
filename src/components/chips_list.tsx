@@ -1,8 +1,6 @@
-export default function ChipsList({
-  title,
-  chips,
-  selected,
-}: {
+import type { FC } from "hono/jsx";
+
+const ChipsList: FC<{
   title?: string;
   chips: {
     label: string;
@@ -10,7 +8,7 @@ export default function ChipsList({
     value: string;
   }[];
   selected?: string | null;
-}) {
+}> = ({ title, chips, selected }) => {
   if (chips.length <= 1) {
     return <></>;
   }
@@ -34,4 +32,6 @@ export default function ChipsList({
       </div>
     </div>
   );
-}
+};
+
+export default ChipsList;

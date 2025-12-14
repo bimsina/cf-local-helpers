@@ -1,14 +1,20 @@
 {
   "name": "cf-local-helpers",
-  "version": "0.0.0",
+  "author": "bimsina",
+  "license": "MIT",
+  "url": "https://github.com/bimsina/cf-local-helpers",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./src/index.tsx",
-      "import": "./src/index.tsx"
-    }
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
   },
-  "types": "./src/index.tsx",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "pnpm -C example run dev",
     "build": "tsdown"

@@ -1,4 +1,6 @@
-export default function Head() {
+import type { FC } from "hono/jsx";
+
+const Head: FC = () => {
   return (
     <head>
       <title>Cloudflare Local Helpers</title>
@@ -20,4 +22,6 @@ export default function Head() {
       />
     </head>
   );
-}
+};
+
+export default Head;

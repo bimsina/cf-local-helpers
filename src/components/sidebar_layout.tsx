@@ -1,8 +1,8 @@
-import type { FC, PropsWithChildren } from "hono/jsx";
+import type { FC } from "hono/jsx";
 import type { BaseProps } from "../types";
 import Head from "./head";
 
-function Header(props: { title?: string }) {
+const Header: FC<{ title?: string }> = (props) => {
   return (
     <header class="px-6 h-12 flex-shrink-0 pt-2 border-b border-gray-200">
       <div class="flex-1 flex items-center">
@@ -13,14 +13,14 @@ function Header(props: { title?: string }) {
       <div class="flex-none gap-2"></div>
     </header>
   );
-}
+};
 
-function SidebarItem(props: {
+const SidebarItem: FC<{
   label: string;
   href: string;
   currentPath: string;
   icon?: any;
-}) {
+}> = (props) => {
   const isActive =
     props.currentPath === props.href ||
     (props.href !== "/" &&
@@ -35,7 +35,7 @@ function SidebarItem(props: {
       </a>
     </li>
   );
-}
+};
 
 export const SidebarLayout: FC<
   BaseProps & {
