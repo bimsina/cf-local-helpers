@@ -2,6 +2,8 @@
 
 A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 
+[![NPM Version](https://img.shields.io/npm/v/cf-local-helpers)](https://www.npmjs.com/package/cf-local-helpers)
+
 > ⚠️ **Warning**: This dashboard should only be used in development mode and never deployed to production. It provides direct access to your local Cloudflare resources and should not be exposed publicly.
 
 ## Features
