@@ -227,16 +227,30 @@ export const KVPage: FC<KVPageProps> = (props) => {
       {selectedKV && (
         <>
           <div class="flex justify-between mb-6 items-center w-full">
-            <button
-              class="btn btn-primary btn-sm gap-2"
-              onclick="document.getElementById('kv_modal').showModal()"
-              hx-get={`${props.basePath}/kv/${selectedKV}/entries/new`}
-              hx-target="#kv-modal-content"
-              hx-swap="outerHTML"
-            >
-              <span class="material-symbols-outlined text-[18px]">add</span>
-              Add Key
-            </button>
+            <div class="flex gap-2">
+              <button
+                class="btn btn-primary btn-sm gap-2"
+                onclick="document.getElementById('kv_modal').showModal()"
+                hx-get={`${props.basePath}/kv/${selectedKV}/entries/new`}
+                hx-target="#kv-modal-content"
+                hx-swap="outerHTML"
+              >
+                <span class="material-symbols-outlined text-[18px]">add</span>
+                Add Key
+              </button>
+              <button
+                class="btn btn-error btn-outline btn-sm gap-2"
+                hx-delete={`${props.basePath}/kv/${selectedKV}/entries`}
+                hx-confirm={`Are you sure you want to clear all data from '${selectedKV}'? This action cannot be undone.`}
+                hx-target="#kv-rows"
+                hx-swap="outerHTML"
+              >
+                <span class="material-symbols-outlined text-[18px]">
+                  clear_all
+                </span>
+                Clear Data
+              </button>
+            </div>
             <div class="form-control w-64">
               <label class="input">
                 <svg
@@ -269,42 +283,25 @@ export const KVPage: FC<KVPageProps> = (props) => {
             </div>
           </div>
           <div class="flex flex-col gap-4">
-            {props.kvData ? (
-              props.kvData.length === 0 ? (
-                <div class="alert alert-info shadow-sm">
-                  <span class="material-symbols-outlined">info</span>
-                  <span>Namespace is empty</span>
-                </div>
-              ) : (
-                <div class="overflow-x-auto bg-base-100 rounded-box border border-base-200 shadow-sm">
-                  <table class="table w-full">
-                    <thead>
-                      <tr class="bg-base-200/50">
-                        <th>Key</th>
-                        <th>Value</th>
-                        <th>Expiration</th>
-                        <th class="text-right">Actions</th>
-                      </tr>
-                    </thead>
-                    <KVRows
-                      basePath={props.basePath}
-                      kvId={selectedKV}
-                      kvData={props.kvData}
-                    />
-                  </table>
-                </div>
-              )
-            ) : (
-              <div class="hero bg-base-200 rounded-box p-8">
-                <div class="hero-content text-center">
-                  <div class="max-w-md">
-                    <span class="text-4xl">🔄</span>
-                    <h3 class="text-lg font-bold mt-2">Loading KV data...</h3>
-                    <p class="py-4">Please wait while data is being fetched.</p>
-                  </div>
-                </div>
+            {
+              <div class="overflow-x-auto bg-base-100 rounded-box border border-base-200 shadow-sm">
+                <table class="table w-full">
+                  <thead>
+                    <tr class="bg-base-200/50">
+                      <th>Key</th>
+                      <th>Value</th>
+                      <th>Expiration</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <KVRows
+                    basePath={props.basePath}
+                    kvId={selectedKV}
+                    kvData={props.kvData || []}
+                  />
+                </table>
               </div>
-            )}
+            }
           </div>
         </>
       )}

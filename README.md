@@ -43,6 +43,7 @@ A dashboard for managing Cloudflare Workers local resources (KV, D1, R2).
 
 ## Tech Stack
 
+- Hono ([hono.dev](https://hono.dev/))
 - HTMX ([htmx.org](https://htmx.org))
 - TailwindCSS ([tailwindcss.com](https://tailwindcss.com))
 - DaisyUI ([daisyui.com](https://daisyui.com))
@@ -78,7 +79,28 @@ pnpm add cf-local-helpers --save-dev
 bun add cf-local-helpers --save-dev
 ```
 
-### 2. Usage Examples
+### 2. Quick Start
+
+To see the dashboard in action with sample data:
+
+```bash
+# Clone the repository
+git clone https://github.com/bimsina/cf-local-helpers.git
+cd cf-local-helpers
+
+# Install dependencies
+pnpm install
+
+# Build package
+pnpm build
+
+# Run the example project
+pnpm dev
+```
+
+This will start the development server with sample D1 databases, KV namespaces, and R2 buckets pre-configured. Visit `http://localhost:8787/dashboard` to access the dashboard.
+
+### 3. Usage Examples
 
 #### Pure Cloudflare Worker
 

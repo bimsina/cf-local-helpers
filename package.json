@@ -1,6 +1,6 @@
 {
   "name": "cf-local-helpers",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A dashboard for managing Cloudflare Workers local resources (KV, D1, R2) during development",
   "author": "bimsina",
   "license": "MIT",

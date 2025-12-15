@@ -260,6 +260,31 @@ export default function createHandler(options: DashboardOptions = {}) {
     // Actually returning empty string or fragment works for delete if swapping outerHTML of row
   });
 
+  app.delete(`${basePath}/kv/:kvId/entries`, async (c) => {
+    const kvId = c.req.param("kvId");
+    const env = c.env as { [key: string]: unknown };
+
+    try {
+      const entry = Object.entries(env).find(([k]) => k === kvId);
+      if (entry) {
+        const kv = entry[1] as KVNamespace;
+
+        // Get all keys and delete them
+        const { keys } = await kv.list();
+        await Promise.all(keys.map((key) => kv.delete(key.name)));
+
+        // Return empty rows since all data is cleared
+        return c.html(
+          <KVRows basePath={basePath} kvId={kvId} kvData={[]} />
+        );
+      }
+    } catch (e: any) {
+      console.error("Clear data failed", e);
+      return c.text(`Error clearing KV data: ${e.message}`, 500);
+    }
+    return c.text("KV not found", 404);
+  });
+
   // R2 Routes
   app.get(`${basePath}/r2`, (c) => {
     const env = c.env as { [key: string]: unknown };
